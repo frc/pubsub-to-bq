@@ -1,0 +1,8 @@
+.gcloudignore
+.gitignore
+#!include:.gitignore
+!/dist
+/src
+/build
+/test
+/tsconfig.json

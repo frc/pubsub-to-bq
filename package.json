@@ -1,0 +1,21 @@
+{
+  "name": "gcp",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/bigquery": "^4.5.0",
+    "@google-cloud/firestore": "^3.1.0",
+    "@google-cloud/pubsub": "^1.2.0",
+    "crypto": "^1.0.1"
+  },
+  "devDependencies": {
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.4"
+  },
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "build": "tsc",
+    "deploy": "yarn build; ./build/gcloud-functions-deploy.sh"
+  }
+}
