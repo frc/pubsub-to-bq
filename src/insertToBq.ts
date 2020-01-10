@@ -70,7 +70,7 @@ export async function insertToBq(datasetId: string, tablePrefix: string, data: u
   ok(datasetId.match(/^[a-zA-Z0-9_]+$/), `invalid dataset "${datasetId}"`);
   ok(tablePrefix.match(/^[a-zA-Z0-9_]+$/), `invalid table prefix "${tablePrefix}"`);
   const [schema, value] = discoverSchema(data);
-  const schemaId = createHash('md5').update(JSON.stringify(schema)).digest('base64').replace(/[^a-zA-Z0-9]/g, '');
+  const schemaId = createHash('sha256').update(JSON.stringify(schema)).digest('base64').replace(/[^a-zA-Z0-9]/g, '');
   const tableId = `${tablePrefix}_${schemaId}`;
 
   const bq = new BigQuery();
